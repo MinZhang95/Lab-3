@@ -18,7 +18,6 @@ A data frame of the geometry file \code{file}
 team_7
 }
 \examples{
-tolerance <- 0.1
-file <- "./data/gadm36_AUS_shp/gadm36_AUS_1.shp"
-team_7(file,tolerance)
+fpath <- system.file("extdata","gadm36_AUS_1.shp",package="Lab3R")
+team_7(fpath,0.1)
 }
