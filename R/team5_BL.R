@@ -22,7 +22,9 @@
 
 team_5 <- function(file="data/gadm36_AU_shp/gadm36_AUS_1.shp", tolerance = 0.1) {
   
-  # invalid arguement of file
+  #the following are test before running the function
+  
+  #invalid arguement of file
   if (!file.exists(file)) {
     warning("file does not exist")
     return(NA)
@@ -33,6 +35,13 @@ team_5 <- function(file="data/gadm36_AU_shp/gadm36_AUS_1.shp", tolerance = 0.1) 
     return(NA)
   }
   
+  #negative tolerance
+  if(tolerance <= 0) {
+    warning("tolerance must be a positive number")
+    return(NA)
+  }
+  
+  #the function
   ozbig <- read_sf(file)
   oz_st <- maptools::thinnedSpatialPoly(
     as(ozbig, "Spatial"), tolerance = tolerance, 
