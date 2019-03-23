@@ -9,14 +9,5 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
-<<<<<<< HEAD
-<<<<<<< HEAD
 Imports: dplyr, maptools, purrr, sf, methods,tidyverse
 Suggests: testthat
-=======
-=======
->>>>>>> da9a8b76e7f44429fa7fdaad3bf5d88df698267e
-Imports: dplyr, maptools, purrr, sf, methods, tidyverse
-Suggests: 
-    testthat
->>>>>>> 75d1e6befb47501656ef5b710726acbe5678b09a
