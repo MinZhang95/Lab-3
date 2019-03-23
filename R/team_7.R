@@ -12,7 +12,7 @@
 #' team_7(fpath,0.1)
 #' @export
 
-team_7 <- function(file, tolerance){
+team_7 <- function(file = system.file("extdata","gadm36_AUS_1.shp", package="Lab3R"), tolerance = 0.1){
   
   ozbig <- read_sf(file)
   oz_st <- thinnedSpatialPoly(as(ozbig, "Spatial"), tolerance = tolerance, minarea = 0.001, topologyPreserve = TRUE)
