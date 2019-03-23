@@ -2,7 +2,7 @@
 #' @aliases team_7
 #' @title team_7
 #' @usage team_7(file,tolerance)
-#' @import dplyr maptools purrr sf
+#' @import dplyr maptools purrr sf tidyverse
 #' @importFrom "methods" "as"
 #' @param file A path to a shape file
 #' @param tolerance The value used to thin the polygon
