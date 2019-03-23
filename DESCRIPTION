@@ -1,19 +1,15 @@
 Package: Lab3R
 Type: Package
-Title: Reformat a geometry file as a data frame
+Title: Lab3R
 Version: 0.1.0
 Author: Brianna Lawton, Min Zhang, and Stephanie Reinders
-Maintainer: The package maintainer <yourself@somewhere.net>
+Maintainer: Min Zhang <minz@iastate.edu>
 Description: This package provides three functions for reformatting a geometry shape file as a data frame. 
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
-<<<<<<< HEAD
-Imports: dplyr, maptools, purrr, sf, methods,tidyverse
+Imports: dplyr, maptools, purrr, sf, methods, tidyverse, checkmate
 Suggests: testthat
-=======
-Imports: dplyr, maptools, purrr, sf, methods, tidyverse
-Suggests: 
-    testthat
->>>>>>> 75d1e6befb47501656ef5b710726acbe5678b09a
+Depends: stats
+
