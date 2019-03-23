@@ -1,6 +1,6 @@
 #' @name team_7
 #' @aliases team_7
-#' @title  team_7
+#' @title team_7
 #' @usage team_7(file,tolerance)
 #' @import dplyr maptools purrr sf
 #' @importFrom "methods" "as"
@@ -14,6 +14,25 @@
 
 team_7 <- function(file = system.file("extdata","gadm36_AUS_1.shp", package="Lab3R"), tolerance = 0.1){
   
+  # TESTS
+  # invalid arguement of file
+  if (!file.exists(file)) {
+    warning("file does not exist")
+    return(NA)
+  }
+  # invalid arguement of tolerance
+  if (!is.numeric(tolerance)) {
+    warning("tolerance is not numeric")
+    return(NA)
+  }
+  
+  # negative tolerance
+  if (tolerance <= 0) { 
+    warning("tolerance must be a positive number")
+    return(NA)
+  }
+  
+  # FUNCTION
   ozbig <- read_sf(file)
   oz_st <- thinnedSpatialPoly(as(ozbig, "Spatial"), tolerance = tolerance, minarea = 0.001, topologyPreserve = TRUE)
   oz <- st_as_sf(oz_st)
