@@ -1,8 +1,10 @@
+#' Function for Lab3 using Lab2 Team5 function
+#' 
 #' @name team_7
 #' @aliases team_7
 #' @title team_7
 #' @usage team_7(file,tolerance)
-#' @import dplyr maptools purrr sf tidyverse
+#' @import dplyr maptools purrr sf tidyverse tools
 #' @importFrom "methods" "as"
 #' @param file A path to a shape file
 #' @param tolerance The value used to thin the polygon
@@ -20,6 +22,13 @@ team_7 <- function(file = system.file("extdata","gadm36_AUS_1.shp", package="Lab
     warning("file does not exist")
     return(NA)
   }
+  
+  # invalid arguement of file type
+  if (file_ext(file) != "shp" ) {
+    warning("file is not a shapefile")
+    return(NA)
+  }
+  
   # invalid arguement of tolerance
   if (!is.numeric(tolerance)) {
     warning("tolerance is not numeric")

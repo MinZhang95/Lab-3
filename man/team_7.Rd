@@ -15,7 +15,7 @@ team_7(file,tolerance)
 A data frame of the geometry file \code{file}
 }
 \description{
-team_7
+Function for Lab3 using Lab2 Team5 function
 }
 \examples{
 fpath <- system.file("extdata","gadm36_AUS_1.shp",package="Lab3R")
