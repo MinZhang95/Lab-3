@@ -7,12 +7,12 @@
 team_7(file,tolerance)
 }
 \arguments{
-\item{file}{A path to a shape file}
+\item{file}{A path to the .shp file of a selected country. Default value is Australia.}
 
-\item{tolerance}{The value used to thin the polygon}
+\item{tolerance}{A numeric number of thinning parameter. Default value is 0.1.}
 }
 \value{
-A data frame of the geometry file \code{file}
+A dataframe for plotting the map of the selected country (with longitude, latitude, and grouping indeces of states/provinces).
 }
 \description{
 Function for Lab3 using Lab2 Team5 function
