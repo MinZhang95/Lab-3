@@ -1,0 +1,14 @@
+---
+title: "README"
+author: "Lab 3 Team 1: Brianna Lawton, Min Zhang, and Stephanie Reinders"
+date: "3/24/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Lab 3 Team 1 Github repository
+https://github.com/MinZhang95/Lab-3.git
+

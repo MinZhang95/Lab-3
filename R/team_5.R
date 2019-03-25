@@ -1,26 +1,22 @@
 #' Function for Lab3 using Lab2 Team5 function
 #'
-#' @name team5_BL
-#' @aliases team5_BL
-#' @title  team5_BL
-#' @usage team5_BL(file,tolerance)
+#' @name team_5
+#' @aliases team_5
+#' @title  team_5
+#' @usage team_5(file,tolerance)
 #' @import dplyr maptools purrr sf
 #' @importFrom "methods" "as"
+#' @importFrom "stats" "rnorm"
 #' @param file A path to the .shp file of a selected country. Default value is Australia.
 #' @param tolerance A numeric number of thinning parameter. Default value is 0.1.
 #' @import tidyverse dplyr purrr sf
-#' @return A dataframe for plotting the map of the selected country (with longitude, latitude, and grouping indeces of states/provinces). A data frame of the geometry file \code{file}
-#' @examples
-#' file <- "inst/gadm36_AU_shp/gadm36_AUS_1.shp"
-#' tolerance <- 0.1
-#' team_5(file = file, tolerance = tolerance)
-#' 
+#' @return A dataframe for plotting the map of the selected country (with longitude, latitude, and grouping indeces of states/provinces).
 #' @examples
 #' fpath <- system.file("extdata","gadm36_AUS_1.shp",package="Lab3R")
-#' team5_BL(fpath,0.1)
+#' team_5(fpath,0.1)
 #' @export
 
-team_5 <- function(file="data/gadm36_AU_shp/gadm36_AUS_1.shp", tolerance = 0.1) {
+team_5 <- function(file=system.file("extdata","gadm36_AUS_1.shp",package="Lab3R"), tolerance = 0.1) {
   
   #the following are test before running the function
   
@@ -58,6 +54,17 @@ team_5 <- function(file="data/gadm36_AU_shp/gadm36_AUS_1.shp", tolerance = 0.1) 
   }
   oz_flatten <- flatten(flatten(oz$geometry))
   ozplus <- purrr::map_df(.x=oz_flatten,.f=Mat2Df)
+  
+  # Bind the country name and territory or state names
+  nrep <- oz$geometry %>% 
+    map_depth(3, data.frame) %>% map_depth(3, nrow) %>% 
+    map_depth(2, unlist) %>%
+    map_depth(1, unlist) %>% map_depth(1, sum) %>% 
+    unlist()
+  
+  df.info <- data.frame(country = rep(oz$NAME_0, nrep),
+                        name = rep(oz$NAME_1, nrep))
+  ozplus <- cbind(df.info, ozplus)
   
   return(ozplus)
 }
