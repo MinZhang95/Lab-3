@@ -29,6 +29,8 @@ team_1 <- function(file = system.file("extdata", "gadm36_AUS_1.shp", package = "
     }
   }
   
+  x = y = NULL
+  
   # start Lab2 Team1's content
   ozbig <- read_sf(file)
   oz_st <- maptools::thinnedSpatialPoly(
